@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<style>
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+</style>
+
+<!-- Welcome Modal -->
+<div class="modal fade" id="welcomeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header border-0">
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body text-center">
+
+                <img src="{{ url_for('static', filename='images/profile.jpeg') }}"
+                     class="profile-img mb-3">
+
+                <h2>Hello 👋</h2>
+
+                <p>
+                    Welcome to Student Task Manager.
+                    Developed by <strong>Rutuja Ainapure</strong>.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<h1>Dashboard</h1>
+
+<div class="row mt-4">
+
+    <!-- Total Students -->
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5>Total Students</h5>
+                <h2>{{ total_students }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Tasks -->
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5>Total Tasks</h5>
+                <h2>{{ total_tasks }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attendance Records -->
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5>Attendance Records</h5>
+                <h2>{{ total_attendance }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Assignments -->
+    <div class="col-md-3">
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <h5>Task Assignments</h5>
+                <h2>{{ total_assignments }}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h4>Student Task Manager</h4>
+            <p>
+                Flask + MySQL Backend Application
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = new bootstrap.Modal(
+        document.getElementById('welcomeModal')
+    );
+    modal.show();
+});
+</script>
+
+{% endblock %}
