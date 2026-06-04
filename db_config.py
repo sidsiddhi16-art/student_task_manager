@@ -1,21 +1,13 @@
 import mysql.connector
-
-print("MYSQL MODULE LOADED")
+import os
 
 def get_database_connection():
 
-    print("TRYING DATABASE CONNECTION")
-
-    connection = mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="root",
-        password="root@1234",
-        database="student_task_manager",
-        connection_timeout=5,
-        use_pure=True
+    return mysql.connector.connect(
+        host=os.environ.get("DB_HOST"),
+        user=os.environ.get("DB_USER"),
+        password=os.environ.get("DB_PASSWORD"),
+        database=os.environ.get("DB_NAME"),
+        port=int(os.environ.get("DB_PORT", 4000)),
+        ssl_disabled=False
     )
-
-    print("DATABASE CONNECTION SUCCESSFUL")
-
-    return connection
