@@ -2,48 +2,7 @@
 
 {% block content %}
 
-<style>
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-</style>
-
-<!-- Welcome Modal -->
-<div class="modal fade" id="welcomeModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-            <div class="modal-header border-0">
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal">
-                </button>
-            </div>
-
-            <div class="modal-body text-center">
-
-                <img src="{{ url_for('static', filename='images/profile.jpeg') }}"
-                     class="profile-img mb-3">
-
-                <h2>Hello 👋</h2>
-
-                <p>
-                    Welcome to Student Task Manager.
-                    Developed by <strong>Rutuja Ainapure</strong>.
-                </p>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
+<!-- Dashboard -->
 <h1>Dashboard</h1>
 
 <div class="row mt-4">
@@ -101,13 +60,5 @@
     </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = new bootstrap.Modal(
-        document.getElementById('welcomeModal')
-    );
-    modal.show();
-});
-</script>
 
 {% endblock %}

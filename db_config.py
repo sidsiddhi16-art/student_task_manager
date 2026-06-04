@@ -1,22 +1,21 @@
 import mysql.connector
 
+print("MYSQL MODULE LOADED")
+
 def get_database_connection():
+
+    print("TRYING DATABASE CONNECTION")
+
     connection = mysql.connector.connect(
-        host = 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
-        user = '4KakwkRGGdHu1ga.root',
-        password = '3MNM9Gv1MvaSqkHL',
-        database = 'student_task_manager',
-        port = 4000
+        host="localhost",
+        port=3306,
+        user="root",
+        password="root@1234",
+        database="student_task_manager",
+        connection_timeout=5,
+        use_pure=True
     )
 
+    print("DATABASE CONNECTION SUCCESSFUL")
+
     return connection
-
-# def get_database_connection():
-#     connection = mysql.connector.connect(
-#         host = 'localhost',
-#         user = 'root',
-#         password = 'root123',
-#         database = 'student_task_manager'
-#     )
-
-#     return connection
